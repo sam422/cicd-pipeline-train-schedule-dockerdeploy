@@ -39,14 +39,14 @@ pipeline {
        when {
         branch 'master'
        }
-          stage ('DeployToProduction') {
+        stage ('DeployToProduction') {
           when {
-        branch 'master'
-       }
-             steps {
-        input 'Deploy to Production'
-        milestone(1)
-        withCredentials ([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+              branch 'master'
+         }
+         steps {
+            input 'Deploy to Production'
+          milestone(1)
+           withCredentials ([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
             script {
                 sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@${env.prod_ip} \"docker pull <DOCKER_HUB_USERNAME>/train-schedule:${env.BUILD_NUMBER}\""
                 try {
