@@ -21,6 +21,14 @@ pipeline {
                 }
             }
         }
+        stage('Pipeline scans using Sken') {
+            when {
+                branch 'master'
+            }
+            steps {
+               skenai appId: '784cd345-991f-44a7-9e5f-e6e0925dbd00', orgId: 'd3a8ea44-ae17-4013-b9db-3f79f29ead77'
+            }
+        }
          stage('Scan Docker Image using clair scan') {
             when {
                 branch 'master'
