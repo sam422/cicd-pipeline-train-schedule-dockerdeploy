@@ -1,5 +1,6 @@
 FROM node:16-alpine3.11
-WORKDIR /usr/src/app
+USER node
+WORKDIR /home/node
 COPY package*.json ./
 RUN npm install
 COPY . .
