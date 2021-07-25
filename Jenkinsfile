@@ -21,6 +21,19 @@ pipeline {
                 }
             }
         }
+         stage('Scan Docker Image using clair scan') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    
+                        
+                        sh 'cd /home/ec2-user/clair-scanner;./clair-scanner_linux_amd64 -w example-alpine.yaml --ip 10.10.10.12 msvkumar/sam422'
+                       
+                }
+            }
+        }
         stage('Push Docker Image') {
             when {
                 branch 'master'
