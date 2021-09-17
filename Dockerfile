@@ -1,9 +1,7 @@
-FROM node:16-alpine3.11
-WORKDIR /home/node
-COPY package*.json /home/node/
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
 COPY . .
-RUN chown -R node:node /home/node/
-USER node
-EXPOSE 8081
+EXPOSE 8080
 CMD [ "npm", "start" ]
