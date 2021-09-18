@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('checkout'){
+            steps{
+                git branch: 'master', url: 'https://github.com/sam422/cicd-pipeline-train-schedule-dockerdeploy.git'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Running build automation'
