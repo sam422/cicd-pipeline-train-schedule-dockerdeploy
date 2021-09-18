@@ -20,12 +20,12 @@ pipeline {
             }
         }
          stage('Build Docker Image') {
-            when {
+           /* when {
                 expression {
                 return env.BRANCH_NAME = 'master';
                 return env.GIT_BRANCH = 'master';
                 }
-            }
+            }*/
               steps {
                 script {
                     app = docker.build("msvkumar/sam422")
