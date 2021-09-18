@@ -51,7 +51,7 @@ pipeline {
                 script {
                     
                         
-                        sh '/var/lib/jenkins/clair-scanner/clair-scanner --ip 10.0.1.16 nodevul:3'
+                        sh '/var/lib/jenkins/clair-scanner/clair-scanner --ip 10.0.1.16 nodefixed:4'
                        
                 }
             }
