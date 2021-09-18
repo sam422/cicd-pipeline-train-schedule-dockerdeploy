@@ -51,7 +51,7 @@ pipeline {
                 script {
                     
                         
-                        sh 'clair-scanner/clair-scanner --ip 10.0.1.16 node:9'
+                        sh './example-run.sh  vulhub/flask:1.1.1'
                        
                 }
             }
