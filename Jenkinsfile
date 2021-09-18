@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+    FULL_PATH_BRANCH = "${sh(script:'git name-rev --name-only HEAD', returnStdout: true)}"
+    GIT_BRANCH = FULL_PATH_BRANCH.substring(FULL_PATH_BRANCH.lastIndexOf('/') + 1, FULL_PATH_BRANCH.length())
+  }
     stages {
         stage('checkout'){
             steps{
@@ -10,6 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
+                echo 'Branch Name is ${GIT_BRANCH}'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
@@ -17,7 +22,7 @@ pipeline {
          stage('Build Docker Image') {
             when {
                 expression {
-                return env.BRANCH_NAME = 'master';
+                return env.GIT_BRANCH = 'master';
                 }
             }
               steps {
