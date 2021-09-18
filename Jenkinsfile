@@ -44,9 +44,9 @@ pipeline {
             }
         }
         stage('Scan Docker Image using clair scan') {
-            when {
+           /* when {
                 branch 'master'
-            }
+            }*/
             steps {
                 script {
                     
