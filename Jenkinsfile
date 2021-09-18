@@ -37,7 +37,7 @@ pipeline {
                skenai appId: '2c7b91b8-b8ee-48ff-851f-66d7eb47c143', orgId: 'd3a8ea44-ae17-4013-b9db-3f79f29ead77'
             }
         }
-         stage('Scan Docker Image using clair scan') {
+        /* stage('Scan Docker Image using clair scan') {
             when {
                 branch 'master'
             }
@@ -49,7 +49,7 @@ pipeline {
                        
                 }
             }
-        }
+        }*/
         stage('Push Docker Image') {
             when {
                 branch 'master'
