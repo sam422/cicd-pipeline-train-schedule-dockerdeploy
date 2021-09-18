@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('checkout'){
             steps{
+                echo 'Git checkout Master'
                 git branch: 'master', url: 'https://github.com/sam422/cicd-pipeline-train-schedule-dockerdeploy.git'
             }
         }
