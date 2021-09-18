@@ -51,7 +51,7 @@ pipeline {
                 script {
                     
                         
-                        sh '/var/lib/jenkins/clair-scanner/clair-scanner --ip 10.0.1.16 vulhub/flask:1.1.1'
+                        sh '/var/lib/jenkins/clair-scanner/clair-scanner --ip 10.0.1.16 nodevul:2'
                        
                 }
             }
