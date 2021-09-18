@@ -51,7 +51,7 @@ pipeline {
                 script {
                     
                         
-                        sh './example-run.sh  vulhub/flask:1.1.1'
+                        sh 'clair-scanner/example-run.sh  vulhub/flask:1.1.1'
                        
                 }
             }
