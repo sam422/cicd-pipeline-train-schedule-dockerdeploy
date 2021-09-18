@@ -51,7 +51,7 @@ pipeline {
                 script {
                     
                         
-                        sh 'clair-scanner_linux_amd64 -w example-alpine-scan.yaml --ip 10.10.10.12 msvkumar/sam422'
+                        sh '~/clair-scanner/example-run.sh vulhub/flask:1.1.1'
                        
                 }
             }
