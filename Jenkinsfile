@@ -9,10 +9,7 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-               when {
-                branch 'master'
-            }
-            steps {
+              steps {
                 script {
                     app = docker.build("msvkumar/sam422")
                     app.inside {
